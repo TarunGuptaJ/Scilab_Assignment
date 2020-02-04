@@ -1,5 +1,5 @@
-rows = input("Number of rows of A :");
-cols = input("Number of columns of A  :");
+rows = 3;
+cols = 3;
 A = zeros(rows,cols);
 disp("Inputs to all matrices to be sequential left to right, top to bottom");
 disp("Inputs to A begin");
@@ -8,13 +8,14 @@ for i = 1:rows
         A(i,j) = input("value for A:")
     end
 end
-
+B = zeros(rows,1);
 disp("Inputs for B begin");
 for i = 1:rows
     B(i) = input("Value for B:")
 end
 //A = [2 3 -1;4 4 -3;-2 3 -1];
 //B = [5;3;1];
+disp(A,'The given matrix is A = ');
 n = length(B);
 Aug = [A , B];
 for j = 1:n-1
