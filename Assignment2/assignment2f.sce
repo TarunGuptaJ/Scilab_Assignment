@@ -1,16 +1,27 @@
 function column_span(mat,n)
+    [n,m] = size(a);
     disp("Column Span:");
     for i=1:n-1
+        k = i
+        while (mat(i,k) == 0 && k <= m)
+            k = k + 1;
+        end
         for j=i+1:n
-            mat(j,:) = mat(j,:) - (mat(j,i)/mat(i,i)) * mat(i,:);
+            if(mat(i,k)<>0)
+                mat(j,:) = mat(j,:) - (mat(j,k)/mat(i,k)) * mat(i,:);
+            end
         end
         disp(mat);
     end
     for i=1:n
-        if(mat(i,i)<>0)
-            mat(i,:)=mat(i,:)/mat(i,i);
+        for j=i:m
+            if(mat(i,j)<>0)
+                mat(i,:)=mat(i,:)/mat(i,j);
+                break;
+            end
         end
     end
+
     disp(mat)
     for i=1:n
         for j=i:n
